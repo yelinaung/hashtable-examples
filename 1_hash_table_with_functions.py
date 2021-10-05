@@ -1,4 +1,5 @@
 import pprint
+import logging
 
 pp = pprint.PrettyPrinter()
 
@@ -17,12 +18,15 @@ def insert(key, value):
 
 
 def lookup(key):
+    print(f"looking up {key}")
     index = hash(key) % size
-    print(index)
     try:
-        return value_bucket[index]
+        key_index = key_bucket[index].index(key)
     except ValueError:
-        raise KeyError(f"{key} not found!")
+        logging.exception(f"{key} not found!")
+        return None
+
+    return value_bucket[index][key_index]
 
 
 def print_buckets():
