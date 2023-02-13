@@ -4,8 +4,8 @@ import logging
 class HashTable:
     def setup(self):
         self.size = 8
-        self.key_bucket = [[] for size in range(self.size)]
-        self.value_bucket = [[] for size in range(self.size)]
+        self.key_bucket = [[] for _ in range(self.size)]
+        self.value_bucket = [[] for _ in range(self.size)]
 
     def insert(self, key, value):
         index = hash(key) % self.size
