@@ -5,8 +5,8 @@ from types import SimpleNamespace
 
 def setup(ns: SimpleNamespace):
     ns.size = 8
-    ns.key_bucket = [[] for size in range(ns.size)]
-    ns.value_bucket = [[] for size in range(ns.size)]
+    ns.key_bucket = [[] for _ in range(ns.size)]
+    ns.value_bucket = [[] for _ in range(ns.size)]
 
 
 def insert(ns, key, value):
